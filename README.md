@@ -12,7 +12,7 @@ Select a file or multiple files in finder and invoke the alfred file actions, by
 
 ![Alfred actions screenshot](doc/images/alfred-actions.png?raw=true "")
 
-Choose the appropriate digest algorithm in displayed menu. Be aware that computing digest takes its time on large files, so be patient!
+Choose the appropriate digest algorithm in displayed menu. Be aware, that a digest computation takes its time on large files, so be patient!
 By default, computed digests will be shown. This could be overridden by pressing the ⌘ key, which forces to put computed digests to clipboard.
 
 ![Alfred actions submenu screenshot](doc/images/alfred-actions-submenu.png?raw=true "")
