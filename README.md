@@ -1,6 +1,10 @@
 # alfred-file-checksums
 [Alfred 3][1] workflow for computing file checksums.
 
+The most common hash functions are supported.
+- MD5
+- SHA 1, 256, 384, 512
+
 ## Installation
 
 1) Install [alfred-file-checksums workflow.][2]
