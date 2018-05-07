@@ -159,7 +159,7 @@
 				<key>fixedorder</key>
 				<false/>
 				<key>items</key>
-				<string>[{"imagefile":"bf09f06ebb021b8f6e7c8e6b222dba8ed656743b.png","title":"MD5","arg":"md5","subtitle":"MD5 checksum"},{"imagefile":"07984a6b14d22b605d42f7cce20a45b51a7f3171.png","title":"SHA-1","arg":"sha1","subtitle":"SHA-1 checksum"},{"imagefile":"07984a6b14d22b605d42f7cce20a45b51a7f3171.png","title":"SHA-256","arg":"sha256","subtitle":"SHA-256 checksum"},{"imagefile":"07984a6b14d22b605d42f7cce20a45b51a7f3171.png","title":"SHA-512","arg":"sha512","subtitle":"SHA-512 checksum"}]</string>
+				<string>[{"imagefile":"f26bdea64b84d9f03458c8da5606a68592fe0ebf.png","title":"MD5","arg":"md5","subtitle":"MD5 checksum"},{"imagefile":"7ac56d0bf57ce258a2f8464a7a287499c42d3d29.png","title":"SHA-1","arg":"sha1","subtitle":"SHA-1 checksum"},{"imagefile":"7ac56d0bf57ce258a2f8464a7a287499c42d3d29.png","title":"SHA-256","arg":"sha256","subtitle":"SHA-256 checksum"},{"imagefile":"7ac56d0bf57ce258a2f8464a7a287499c42d3d29.png","title":"SHA-384","arg":"sha384","subtitle":"SHA-384 checksum"},{"imagefile":"7ac56d0bf57ce258a2f8464a7a287499c42d3d29.png","title":"SHA-512","arg":"sha512","subtitle":"SHA-512 checksum"}]</string>
 				<key>runningsubtext</key>
 				<string></string>
 				<key>subtext</key>
@@ -173,6 +173,27 @@
 			<string>alfred.workflow.input.listfilter</string>
 			<key>uid</key>
 			<string>ACC64053-AD03-4AA6-9FF6-5B9CCD1513F2</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Please wait...</string>
+				<key>title</key>
+				<string>Checksums are being computed</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>8176E418-201C-4B08-BC3F-871BFAC8A1C4</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -210,6 +231,11 @@ case "$options" in
             alg='sha-256'
             ;;
 
+        sha384)
+            digest=`shasum -a 384 "$file" | cut -d' '  -f1`
+            alg='sha-384'
+            ;;
+
         sha512)
             digest=`shasum -a 512 "$file" | cut -d' '  -f1`
             alg='sha-512'
@@ -237,27 +263,6 @@ automator -i "file://$tmpfile" popup.wflow</string>
 			<string>5ACA0985-E226-4759-83E4-C176A9EEADCA</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>Please wait...</string>
-				<key>title</key>
-				<string>Checksums are being computed</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>8176E418-201C-4B08-BC3F-871BFAC8A1C4</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -305,6 +310,11 @@ case "$options" in
         sha256)
             digest=`shasum -a 256 "$file" | cut -d' '  -f1`
             alg='sha-256'
+            ;;
+
+        sha384)
+            digest=`shasum -a 384 "$file" | cut -d' '  -f1`
+            alg='sha-384'
             ;;
 
         sha512)
@@ -486,7 +496,7 @@ fi</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>https://github.com/vookimedlo/alfred-file-checksums</string>
+	<string>See https://github.com/vookimedlo/alfred-file-checksums</string>
 	<key>uidata</key>
 	<dict>
 		<key>0CCE0722-6726-45D3-8CDB-EEEF5829B093</key>
@@ -601,7 +611,7 @@ fi</string>
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>2017.12.12</string>
+	<string>2018.05.07</string>
 	<key>webaddress</key>
 	<string>https://github.com/vookimedlo/alfred-file-checksums</string>
 </dict>
